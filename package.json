@@ -6,7 +6,8 @@
   "lint-staged": {
     "src/**/*.{js,jsx,json}": [
       "prettier --write",
-      "git add"
+      "eslint \" **/*.{js,jsx,css,json}\" -- --fix",
+      "git add ."
     ]
   },
   "scripts": {
@@ -19,7 +20,7 @@
     "url": "git+https://github.com/dallin-r-parker/frontendmasters-react-v4.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dallin Parker",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dallin-r-parker/frontendmasters-react-v4/issues"
