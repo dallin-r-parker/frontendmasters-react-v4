@@ -1,35 +1,23 @@
-const Pet = ({ name, animal, breed }) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, name),
-    React.createElement("h2", {}, animal),
-    React.createElement("h2", {}, breed)
-  ]);
-};
+import React, { Component } from "react";
+import { render } from "react-dom";
+import { Router, Link } from "@reach/router";
+import Results from "./Results";
+import Details from "./Details";
 
-class App extends React.Component {
-  handleTitleClick() {
-    alert(`you clicked the title`);
-  }
+class App extends Component {
   render() {
-    return React.createElement("div", {}, [
-      React.createElement("h1", { onClick: this.handleTitleClick }, "Adopt Me"),
-      React.createElement(Pet, {
-        name: "Luna",
-        animal: "Dog",
-        breed: "Havanese"
-      }),
-      React.createElement(Pet, {
-        name: "Brady",
-        animal: "Dog",
-        breed: "Labradoodle"
-      }),
-      React.createElement(Pet, {
-        name: "Winston",
-        animal: "Dog",
-        breed: "Lab"
-      })
-    ]);
+    return (
+      <div>
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
+        <Router>
+          <Results path="/" />
+          <Details path="/details/:id" />
+        </Router>
+      </div>
+    );
   }
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(<App />, document.getElementById("root"));
